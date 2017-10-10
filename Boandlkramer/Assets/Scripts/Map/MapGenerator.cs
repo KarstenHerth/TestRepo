@@ -6,10 +6,6 @@ using System.Linq;
 
 public class MapGenerator : MonoBehaviour {
 
-<<<<<<< HEAD
-    public int deineMutterSchwitztBeimKacken = 1;
-
-=======
 	public int hallwayLengthMin = 3;
 	public int hallwayLengthMax = 8;
 	public int roomWidthMin = 3;
@@ -18,7 +14,7 @@ public class MapGenerator : MonoBehaviour {
 	public int roomHeightMax = 6;
 
 	public int roomCount = 5;
->>>>>>> b6872c6b19f32f0c71e7b4c7e972ea788dbe2653
+
 
 	// Contains all the tiles of this map.
 	public List<Tile> map = new List<Tile> ();
