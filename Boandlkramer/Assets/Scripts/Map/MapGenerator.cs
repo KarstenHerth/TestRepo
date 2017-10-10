@@ -6,6 +6,9 @@ using System.Linq;
 
 public class MapGenerator : MonoBehaviour {
 
+    public int deineMutterSchwitztBeimKacken = 1;
+
+
 	// Contains all the tiles of this map.
 	public List<Tile> map = new List<Tile> ();
 	// Contains a reference of the TemplateGenerator to be used.
