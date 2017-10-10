@@ -6,8 +6,19 @@ using System.Linq;
 
 public class MapGenerator : MonoBehaviour {
 
+<<<<<<< HEAD
     public int deineMutterSchwitztBeimKacken = 1;
 
+=======
+	public int hallwayLengthMin = 3;
+	public int hallwayLengthMax = 8;
+	public int roomWidthMin = 3;
+	public int roomWidthMax = 6;
+	public int roomHeightMin = 3;
+	public int roomHeightMax = 6;
+
+	public int roomCount = 5;
+>>>>>>> b6872c6b19f32f0c71e7b4c7e972ea788dbe2653
 
 	// Contains all the tiles of this map.
 	public List<Tile> map = new List<Tile> ();
@@ -37,7 +48,7 @@ public class MapGenerator : MonoBehaviour {
 		map.AddRange (template.tiles);
 		Node node;
 		// Create more rooms and hallways at randomly selected nodes.
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < roomCount; i++) {
 			node = SelectRandomNode (Node.NodeType.Hallway);
 			if (node != null)
 				CreateHallway (node);
@@ -63,7 +74,7 @@ public class MapGenerator : MonoBehaviour {
 
 	// Use the TemplateGenerator to create a hallway.
 	void CreateHallway (Node node) {
-		Template template = templateGenerator.Hallway (Random.Range (3, 8));
+		Template template = templateGenerator.Hallway (Random.Range (hallwayLengthMin, hallwayLengthMax));
 		template.transform.position = node.transform.position;
 		template.transform.rotation = node.transform.rotation;
 		template.transform.SetParent (transform);
@@ -75,8 +86,8 @@ public class MapGenerator : MonoBehaviour {
 
 	// Use the TemplateGenerator to create a room.
 	void CreateRoom (Node node) {
-		int width = Random.Range (3, 6);
-		int height = Random.Range (3, 6);
+		int width = Random.Range (roomWidthMin, roomWidthMax);
+		int height = Random.Range (roomHeightMin, roomHeightMax);
 		int origin = Random.Range (0, width);
 		Template template = templateGenerator.Room (width, height, origin);
 		template.transform.position = node.transform.position;
@@ -127,7 +138,7 @@ public class MapGenerator : MonoBehaviour {
 		return connectors.ToArray ();
 	}
 
-	// Helper functions for visual representation
+	// Helper functions for visual representation.
 	public void GenerateWalls () {
 		foreach (Tile tile in map)
 			tile.GenerateWalls (this);
